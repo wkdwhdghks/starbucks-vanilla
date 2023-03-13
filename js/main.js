@@ -42,3 +42,43 @@ fadeEls.forEach(function (fadeEl, index) {
     opacity: 1,
   });
 });
+
+new Swiper(".notice-line .swiper", {
+  direction: "vertical",
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  loop: true,
+});
+
+new Swiper(".promotion .swiper", {
+  slidesPerView: 3,
+  spaceBetween: 10,
+  centeredSlides: true,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  loop: true,
+  pagination: {
+    el: ".promotion .swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    prevEl: ".promotion .swiper-prev",
+    nextEl: ".promotion .swiper-next",
+  },
+});
+
+const promotionEl = document.querySelector(".promotion");
+const promotionToggleBtn = document.querySelector(".toggle-promotion");
+let isHidePromotion = false;
+promotionToggleBtn.addEventListener("click", function () {
+  isHidePromotion = !isHidePromotion;
+  if (isHidePromotion) {
+    promotionEl.classList.add("hide");
+  } else {
+    promotionEl.classList.remove("hide");
+  }
+});
